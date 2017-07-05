@@ -16,3 +16,8 @@ const greetMe = function() {
 }
 
 logGreeting(greetMe)
+
+// use function expression on the fly
+logGreeting(function() {
+	console.log('Hello on the fly...')
+})

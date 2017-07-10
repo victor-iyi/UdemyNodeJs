@@ -1,3 +1,8 @@
-const greet = require('./greet')
+const { english, spanish } = require("./greet")
 
-greet()
+english()
+spanish()
+
+// const greet = require("./greet")
+// greet.english()
+// greet.spanish()

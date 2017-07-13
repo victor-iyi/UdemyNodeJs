@@ -2,6 +2,7 @@ const EventEmitter = require('events')
 const util = require('util')
 
 function Greetr() {
+	EventEmitter.call(this) // equivalent to super()
 	this.greeting = 'Hello, World!'
 }
 

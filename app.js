@@ -5,10 +5,12 @@ const PORT = process.env.PORT || 4000
 
 const server = http.createServer((req, res) => {
 	res.writeHead(200, { 'Content-Type': 'text/html' })
-	let doc = fs.readFile(`${ __dirname }/index.html`, 'utf8', (err, data) => {
-		data = data.replace('{name}', 'Victor I. Afolabi')
-		data = data.replace('{age}', 21)
-		res.end(data)
+	// const doc = fs.createReadStream(`${ __dirname }/index.html`).pipe(res)
+	const readable = fs.createReadStream(`${ __dirname }/index.html`, { encoding: 'utf8' })
+	readable.on('data', (doc) => {
+		doc = doc.replace('{name}', 'Victor I. Afolabi')
+		doc = doc.replace('{age}', 21)
+		res.end(doc)
 	})
 })
 server.listen(PORT, 'localhost')
